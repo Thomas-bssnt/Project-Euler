@@ -11,22 +11,13 @@ this property, but there is one other 4-digit increasing sequence.
 What 12-digit number do you form by concatenating the three terms in this sequence?
 """
 
-
-def primes_below(bound):
-    primes = []
-    L = [False, False] + [True] * (bound - 1)
-    for number, is_prime in enumerate(L):
-        if is_prime:
-            primes.append(number)
-            for k in range(2, bound // number + 1):
-                L[number * k] = False
-    return primes
+from helpers import prime_numbers
 
 
 def solution(number_of_digits):
     primes_with_4_digits = [
         prime
-        for prime in primes_below(10 ** number_of_digits)
+        for prime in prime_numbers(10 ** number_of_digits)
         if len(str(prime)) == 4
     ]
 

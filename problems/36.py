@@ -9,12 +9,14 @@ bases 10 and 2.
 NOTE: The palindromic number, in either base, may not include leading zeros.
 """
 
+from helpers import is_palindrome
+
 
 def solution(bound):
     return sum(
         number
         for number in range(bound)
-        if (str(number) == str(number)[::-1] and f"{number:b}" == f"{number:b}"[::-1])
+        if is_palindrome(number) and is_palindrome(f"{number:b}")
     )
 
 

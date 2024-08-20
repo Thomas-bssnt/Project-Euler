@@ -7,14 +7,7 @@ that the 6th prime is 13.
 What is the 10001st prime number?
 """
 
-
-def is_prime(number):
-    if number in (0, 1):
-        return False
-    for i in range(2, number):
-        if number % i == 0:
-            return False
-    return True
+from helpers import is_prime
 
 
 def solution(ith):

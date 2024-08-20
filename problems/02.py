@@ -10,21 +10,13 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 """
 
-
-def fibonacci_generator(F1, F2):
-    a = F1
-    yield a
-    b = F2
-    yield b
-    while True:
-        a, b = b, a + b
-        yield b
+from helpers import fibonacci
 
 
-def solution(bound, F1, F2):
-    fibonacci = fibonacci_generator(F1, F2)
+def solution(bound, f1, f2):
+    fibo = fibonacci(f1, f2)
     result = 0
-    while (number := next(fibonacci)) < bound:
+    while (number := next(fibo)) < bound:
         if number % 2 == 0:
             result += number
     return result
@@ -32,6 +24,6 @@ def solution(bound, F1, F2):
 
 if __name__ == "__main__":
     bound = 4000000
-    F1, F2 = 1, 1
+    f1, f2 = 1, 1
 
-    print(solution(bound, F1, F2))
+    print(solution(bound, f1, f2))

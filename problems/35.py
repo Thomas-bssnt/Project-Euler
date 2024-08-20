@@ -10,23 +10,7 @@ There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37,
 How many circular primes are there below one million?
 """
 
-from math import isqrt
-
-
-def prime_numbers_generator(max_number):
-    numbers = [True] * (max_number + 1)
-
-    numbers[0] = numbers[1] = False
-
-    for i in range(isqrt(max_number) + 1):
-        if numbers[i]:
-            for j in range(i * i, max_number + 1, i):
-                numbers[j] = False
-            yield i
-
-    for i in range(isqrt(max_number) + 1, max_number + 1):
-        if numbers[i]:
-            yield i
+from helpers import prime_numbers
 
 
 def cyclic_permutations(number):
@@ -38,7 +22,7 @@ def cyclic_permutations(number):
 def solution():
     bound = 1000000
 
-    prime_numbers = set(prime_numbers_generator(bound))
+    prime_numbers = set(prime_numbers(bound))
 
     return sum(
         1
