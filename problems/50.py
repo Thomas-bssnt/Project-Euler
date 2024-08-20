@@ -1,3 +1,18 @@
+"""
+Problem 50: Consecutive prime sum
+
+The prime 41, can be written as the sum of six consecutive primes:
+
+41 = 2 + 3 + 5 + 7 + 11 + 13
+
+This is the longest sum of consecutive primes that adds to a prime below one
+hundred.
+
+The longest sum of consecutive primes below one thousand that adds to a prime
+below one thousand is 953 = 23 + 53 + 73 + 83 + 113.
+"""
+
+
 def primes_below(bound):
     primes = []
     L = [False, False] + [True] * (bound - 1)
@@ -10,7 +25,6 @@ def primes_below(bound):
 
 
 def solution(bound):
-
     primes_below_bound = primes_below(bound)
 
     longest_sum = 0
@@ -30,7 +44,6 @@ def solution(bound):
 
 
 if __name__ == "__main__":
-
     bound = 1000000
 
     print(solution(bound))

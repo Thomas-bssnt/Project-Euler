@@ -1,3 +1,12 @@
+"""
+Problem 10: Summation of primes
+
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+"""
+
+
 def primes_below(bound):
     primes = []
     L = [False, False] + [True] * (bound - 1)
@@ -14,7 +23,6 @@ def solution(bound):
 
 
 if __name__ == "__main__":
-
     bound = 2000000
 
     print(solution(bound))
