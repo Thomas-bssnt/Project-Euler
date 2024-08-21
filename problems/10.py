@@ -8,11 +8,11 @@ Find the sum of all the primes below two million.
 
 from helpers import prime_numbers
 
-BOUND = 2000000
+LIMIT = 2000000
 
 
 def solution():
-    return sum(prime_numbers(BOUND))
+    return sum(prime_numbers(LIMIT))
 
 
 if __name__ == "__main__":
