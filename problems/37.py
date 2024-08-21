@@ -15,31 +15,40 @@ NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 from helpers import is_prime
 
 
+def is_left_truncatable(number):
+    number_str = str(number)
+    for i in range(1, len(number_str)):
+        if not is_prime(int(number_str[i:])):
+            return False
+    return True
+
+
+def is_right_truncatable(number):
+    number_str = str(number)
+    for i in range(1, len(number_str)):
+        if not is_prime(int(number_str[:-i])):
+            return False
+    return True
+
+
 def is_truncatable_prime(number):
     if not is_prime(number):
         return False
 
-    number = str(number)
-    for i in range(1, len(number)):
-        if not is_prime(int(number[i:])) or not is_prime(int(number[:-i])):
-            return False
-
-    return True
+    return is_left_truncatable(number) and is_right_truncatable(number)
 
 
 def solution():
-    I = []
-    i = 10
+    truncatable_primes = []
+    number = 10
     count = 0
     while count < 11:
-        if is_truncatable_prime(i):
-            I.append(i)
+        if is_truncatable_prime(number):
+            truncatable_primes.append(number)
             count += 1
-        i += 1
-    return sum(I)
+        number += 1
+    return sum(truncatable_primes)
 
 
 if __name__ == "__main__":
-    # TODO This is very slow
-
     print(solution())
