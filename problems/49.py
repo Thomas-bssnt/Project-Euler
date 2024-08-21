@@ -12,9 +12,13 @@ What 12-digit number do you form by concatenating the three terms in this
 sequence?
 """
 
+from collections import defaultdict
+from itertools import combinations
+
 from helpers import prime_numbers
 
 NUMBER_OF_DIGITS = 4
+KNOWN_SEQUENCE = (1487, 4817, 8147)
 
 
 def solution():
@@ -24,28 +28,19 @@ def solution():
         if len(str(prime)) == 4
     ]
 
-    for i in range(len(primes_with_4_digits)):
-        for j in range(i + 1, len(primes_with_4_digits)):
-            for k in range(j + 1, len(primes_with_4_digits)):
+    prime_groups = defaultdict(list)
+    for prime in primes_with_4_digits:
+        prime_groups[tuple(sorted(str(prime)))].append(prime)
 
+    for prime_group in prime_groups.values():
+        if len(prime_group) >= 3:
+            for prime1, prime2, prime3 in combinations(prime_group, 3):
+                # itertools.combinations preserves the order
                 if (
-                        primes_with_4_digits[j] - primes_with_4_digits[i]
-                        == primes_with_4_digits[k] - primes_with_4_digits[j]
+                        prime2 - prime1 == prime3 - prime2 and
+                        prime1 not in KNOWN_SEQUENCE
                 ):
-                    if (
-                            sorted(str(primes_with_4_digits[i]))
-                            == sorted(str(primes_with_4_digits[j]))
-                            == sorted(str(primes_with_4_digits[k]))
-                    ):
-
-                        if primes_with_4_digits[i] not in [1487, 4817, 8147]:
-                            return (
-                                    str(primes_with_4_digits[i])
-                                    + str(primes_with_4_digits[j])
-                                    + str(primes_with_4_digits[k])
-                            )
-
-    return None
+                    return str(prime1) + str(prime2) + str(prime3)
 
 
 if __name__ == "__main__":
