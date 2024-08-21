@@ -1,5 +1,6 @@
 from typing import Generator
 from math import isqrt, sqrt
+from itertools import count
 
 
 def fibonacci(f1: int, f2: int) -> Generator[int, None, None]:
@@ -16,9 +17,18 @@ def fibonacci(f1: int, f2: int) -> Generator[int, None, None]:
         yield b
 
 
+def triangular_number():
+    """
+    Generates the triangular numbers
+    """
+    for i in count():
+        yield i * (i + 1) // 2
+
+
 def prime_numbers(limit: int) -> Generator[int, None, None]:
     """
     Generates the prime numbers below the given limit.
+    Uses the sieve of Eratosthenes algorithm.
     """
     primes = [True] * (limit + 1)
 
