@@ -21,28 +21,27 @@ LIMIT = 1000000
 
 
 def solution():
-    primes_below_bound = list(prime_numbers(LIMIT))
+    primes_up_to_limit = list(prime_numbers(LIMIT))
+    prime_lookup = set(primes_up_to_limit)
 
-    longest_sum = 0
-    prime_sum = 0
+    max_chain_length = 0
+    max_chain_sum = 0
 
-    for start in range(len(primes_below_bound)):
-        sum_of_consecutive_primes = primes_below_bound[start]
-        for end in range(start + 1, len(primes_below_bound)):
-            sum_of_consecutive_primes += primes_below_bound[end]
-            if sum_of_consecutive_primes > LIMIT:
+    for start in range(len(primes_up_to_limit)):
+        chain_sum = primes_up_to_limit[start]
+        for end in range(start + 1, len(primes_up_to_limit)):
+            chain_sum += primes_up_to_limit[end]
+            if chain_sum > LIMIT:
                 break
             if (
-                    sum_of_consecutive_primes in primes_below_bound
-                    and (length := end - start + 1) > longest_sum
+                    chain_sum in prime_lookup
+                    and (chain_length := end - start + 1) > max_chain_length
             ):
-                longest_sum = length
-                prime_sum = sum_of_consecutive_primes
+                max_chain_length = chain_length
+                max_chain_sum = chain_sum
 
-    return prime_sum
+    return max_chain_sum
 
 
 if __name__ == "__main__":
     print(solution())
-
-    # TODO: Very slow
