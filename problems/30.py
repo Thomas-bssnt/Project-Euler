@@ -21,10 +21,9 @@ POWER = 5
 
 def solution():
     # A number with at least n digits will be always greater than the sum of the powers
-    n = 0
-    while sum(9 ** POWER for _ in range(n)) >= 10 ** n - 1:
+    n = 1
+    while 9 ** POWER * n >= 10 ** n - 1:
         n += 1
-    n += 1
 
     return sum(
         number
