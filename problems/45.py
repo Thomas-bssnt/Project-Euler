@@ -15,6 +15,8 @@ Find the next triangular number that is also pentagonal and hexagonal.
 
 from itertools import count
 
+LIMIT = 40755
+
 
 def generator():
     T = (int(n * (n + 1) / 2) for n in count())
@@ -42,14 +44,12 @@ def generator():
             h = next(H)
 
 
-def solution(bound):
+def solution():
     gene = generator()
-    while (number := next(gene)) <= bound:
+    while (number := next(gene)) <= LIMIT:
         continue
     return number
 
 
 if __name__ == "__main__":
-    bound = 40755
-
-    print(solution(bound))
+    print(solution())

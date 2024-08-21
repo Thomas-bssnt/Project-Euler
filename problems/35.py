@@ -12,6 +12,8 @@ How many circular primes are there below one million?
 
 from helpers import prime_numbers
 
+LIMIT = 1000000
+
 
 def cyclic_permutations(number):
     number = str(number)
@@ -20,14 +22,12 @@ def cyclic_permutations(number):
 
 
 def solution():
-    bound = 1000000
-
-    prime_numbers = set(prime_numbers(bound))
+    primes = set(prime_numbers(LIMIT))
 
     return sum(
         1
-        for prime in prime_numbers
-        if set(cyclic_permutations(prime)).issubset(prime_numbers)
+        for prime in primes
+        if set(cyclic_permutations(prime)).issubset(primes)
     )
 
 

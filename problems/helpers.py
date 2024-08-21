@@ -56,6 +56,19 @@ def prime_factorization(number: int) -> list[int]:
     return prime_factors
 
 
+def maximum_path_sum(triangle: list[list[int]]) -> int:
+    """
+    Returns the maximum path sum of the given triangle.
+    """
+    cumulated_row = triangle[-1]
+    for row in reversed(triangle[:-1]):
+        cumulated_row = [
+            row[i] + max(cumulated_row[i], cumulated_row[i + 1])
+            for i in range(len(row))
+        ]
+    return cumulated_row[0]
+
+
 def is_palindrome(number: int | str) -> bool:
     """
     Returns whether the given number is a palindrome number.

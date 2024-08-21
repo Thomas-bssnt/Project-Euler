@@ -1,8 +1,8 @@
 """
 Problem 18: Maximum path sum I
 
-By starting at the top of the triangle below and moving to adjacent numbers
-on the row below, the maximum total from top to bottom is 23.
+By starting at the top of the triangle below and moving to adjacent numbers on
+the row below, the maximum total from top to bottom is 23.
 
 3
 7 4
@@ -29,11 +29,13 @@ Find the maximum total from top to bottom of the triangle below:
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
-NOTE: As there are only 16384 routes, it is possible to solve this problem
-by trying every route. However, Problem 67, is the same challenge with a
-triangle containing one-hundred rows; it cannot be solved by brute force,
-and requires a clever method! ;o)
+NOTE: As there are only 16384 routes, it is possible to solve this problem by
+trying every route. However, Problem 67, is the same challenge with a triangle
+containing one-hundred rows; it cannot be solved by brute force, and requires a
+clever method! ;o)
 """
+
+from helpers import maximum_path_sum
 
 TRIANGLE = [
     [75],
@@ -54,17 +56,9 @@ TRIANGLE = [
 ]
 
 
-def solution(triangle):
-    cumulated_row = triangle[-1]
-    for row in reversed(triangle[:-1]):
-        cumulated_row = [
-            row[i] + max(cumulated_row[i], cumulated_row[i + 1])
-            for i in range(len(row))
-        ]
-    return cumulated_row[0]
+def solution():
+    return maximum_path_sum(TRIANGLE)
 
 
 if __name__ == "__main__":
-    triangle = TRIANGLE
-
-    print(solution(triangle))
+    print(solution())

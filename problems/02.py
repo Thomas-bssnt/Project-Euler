@@ -12,18 +12,20 @@ four million, find the sum of the even-valued terms.
 
 from helpers import fibonacci
 
+LIMIT = 4_000_000
+F1, F2 = 1, 1
 
-def solution(bound, f1, f2):
-    fibo = fibonacci(f1, f2)
+
+def solution():
     result = 0
-    while (number := next(fibo)) < bound:
+
+    fibo = fibonacci(F1, F2)
+    while (number := next(fibo)) < LIMIT:
         if number % 2 == 0:
             result += number
+
     return result
 
 
 if __name__ == "__main__":
-    bound = 4000000
-    f1, f2 = 1, 1
-
-    print(solution(bound, f1, f2))
+    print(solution())

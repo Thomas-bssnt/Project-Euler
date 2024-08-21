@@ -11,16 +11,16 @@ NOTE: The palindromic number, in either base, may not include leading zeros.
 
 from helpers import is_palindrome
 
+LIMIT = 1000000
 
-def solution(bound):
+
+def solution():
     return sum(
         number
-        for number in range(bound)
+        for number in range(LIMIT)
         if is_palindrome(number) and is_palindrome(f"{number:b}")
     )
 
 
 if __name__ == "__main__":
-    bound = 1000000
-
-    print(solution(bound))
+    print(solution())

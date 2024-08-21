@@ -18,7 +18,8 @@ include it once in your sum.
 from itertools import permutations
 
 """
-There are only two possibilities for 9-digit pandigital numbers (multiplicand, multiplier, product):
+There are only two possibilities for 9-digit pandigital numbers (multiplicand, 
+multiplier, product):
 - (1, 4, 4)
 - (2, 3, 5) 
 The set is used because some products can be obtained in more than one way.

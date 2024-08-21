@@ -8,12 +8,12 @@ Find the sum of all the primes below two million.
 
 from helpers import prime_numbers
 
+BOUND = 2000000
 
-def solution(bound):
-    return sum(prime_numbers(bound))
+
+def solution():
+    return sum(prime_numbers(BOUND))
 
 
 if __name__ == "__main__":
-    bound = 2000000
-
-    print(solution(bound))
+    print(solution())

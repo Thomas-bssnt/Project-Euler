@@ -56,37 +56,36 @@ GRID = [
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
 ]
 
+PRODUCT_LENGTH = 4
 
-def solution(grid, product_length):
-    length_rows, length_cols = len(grid), len(grid[0])
+
+def solution():
+    length_rows, length_cols = len(GRID), len(GRID[0])
 
     products = []
 
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
+    for i in range(len(GRID)):
+        for j in range(len(GRID[0])):
 
             # Horizontal
-            if j + product_length <= length_cols:
-                products.append(prod(grid[i][j + p] for p in range(product_length)))
+            if j + PRODUCT_LENGTH <= length_cols:
+                products.append(prod(GRID[i][j + p] for p in range(PRODUCT_LENGTH)))
 
             # Vertical
-            if i + product_length <= length_rows:
-                products.append(prod(grid[i + p][j] for p in range(product_length)))
+            if i + PRODUCT_LENGTH <= length_rows:
+                products.append(prod(GRID[i + p][j] for p in range(PRODUCT_LENGTH)))
 
             # Diagonal 1
-            if i + product_length <= length_rows and j + product_length <= length_cols:
-                products.append(prod(grid[i + p][j + p] for p in range(product_length)))
+            if i + PRODUCT_LENGTH <= length_rows and j + PRODUCT_LENGTH <= length_cols:
+                products.append(prod(GRID[i + p][j + p] for p in range(PRODUCT_LENGTH)))
 
             # Diagonal 2
-            if i - product_length + 1 >= 0 and j + product_length <= length_cols:
-                products.append(prod(grid[i - p][j + p] for p in range(product_length)))
+            if i - PRODUCT_LENGTH + 1 >= 0 and j + PRODUCT_LENGTH <= length_cols:
+                products.append(prod(GRID[i - p][j + p] for p in range(PRODUCT_LENGTH)))
                 print(i, j)
 
     return max(products)
 
 
 if __name__ == "__main__":
-    grid = GRID
-    product_length = 4
-
-    print(solution(grid, product_length))
+    print(solution())

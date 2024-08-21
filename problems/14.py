@@ -11,10 +11,9 @@ Using the rule above and starting with 13, we generate the following sequence:
 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
 
 It can be seen that this sequence (starting at 13 and finishing at 1) contains
-10 terms. Although it has not been proved yet (Collatz Problem), it is
-enough to state that it is a sequence of 11 terms. Although it has not been
-proved yet (Collatz Problem), it is thought that all starting numbers finish
-at 1.
+10 terms. Although it has not been proved yet (Collatz Problem), it is enough to
+state that it is a sequence of 11 terms. Although it has not been proved yet
+(Collatz Problem), it is thought that all starting numbers finish at 1.
 
 Which starting number, under one million, produces the longest chain?
 
@@ -22,6 +21,8 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 """
 
 from functools import cache
+
+LIMIT = 1000000
 
 
 @cache
@@ -35,11 +36,9 @@ def collatz_sequence_length(number):
     return collatz_sequence_length(number) + 1
 
 
-def solution(bound):
-    return max(range(1, bound), key=collatz_sequence_length)
+def solution():
+    return max(range(1, LIMIT), key=collatz_sequence_length)
 
 
 if __name__ == "__main__":
-    bound = 1000000
-
-    print(solution(bound))
+    print(solution())

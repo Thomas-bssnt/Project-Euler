@@ -27,17 +27,17 @@ What is the index of the first term in the Fibonacci sequence to contain
 
 from helpers import fibonacci
 
+NUMBER_OF_DIGITS = 1000
+F1, F2 = 1, 1
 
-def solution(number_of_digits, F1, F2):
+
+def solution():
     fibo = fibonacci(F1, F2)
     i = 1
-    while len(str(next(fibo))) < number_of_digits:
+    while len(str(next(fibo))) < NUMBER_OF_DIGITS:
         i += 1
     return i
 
 
 if __name__ == "__main__":
-    number_of_digits = 1000
-    F1, F2 = 1, 1
-
-    print(solution(number_of_digits, F1, F2))
+    print(solution())

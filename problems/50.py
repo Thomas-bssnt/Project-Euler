@@ -17,9 +17,11 @@ consecutive primes?
 
 from helpers import prime_numbers
 
+LIMIT = 1000000
 
-def solution(bound):
-    primes_below_bound = list(prime_numbers(bound))
+
+def solution():
+    primes_below_bound = list(prime_numbers(LIMIT))
 
     longest_sum = 0
     prime_sum = 0
@@ -28,7 +30,7 @@ def solution(bound):
         sum_of_consecutive_primes = primes_below_bound[start]
         for end in range(start + 1, len(primes_below_bound)):
             sum_of_consecutive_primes += primes_below_bound[end]
-            if sum_of_consecutive_primes > bound:
+            if sum_of_consecutive_primes > LIMIT:
                 break
             if (
                     sum_of_consecutive_primes in primes_below_bound
@@ -41,8 +43,6 @@ def solution(bound):
 
 
 if __name__ == "__main__":
-    bound = 1000000
-
-    print(solution(bound))
+    print(solution())
 
     # TODO: Very slow

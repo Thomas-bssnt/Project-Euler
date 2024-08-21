@@ -14,15 +14,15 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5,
 
 from itertools import permutations
 
+NUMBERS = "0123456789"
+INDEX = 1000000
 
-def solution(numbers, index):
-    return int("".join(list(permutations(numbers))[index - 1]))
+
+def solution():
+    return int("".join(list(permutations(NUMBERS))[INDEX - 1]))
 
 
 if __name__ == "__main__":
-    numbers = "0123456789"
-    index = 1000000
-
-    print(solution(numbers, index))
+    print(solution())
 
     # No need to sort as permutations return in the right order already

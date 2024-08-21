@@ -12,26 +12,26 @@ As 1 = 1^4 is not a sum it is not included.
 
 The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 
-Find the sum of all the numbers that can be written as the sum of fifth
-powers of their digits.
+Find the sum of all the numbers that can be written as the sum of fifth powers
+of their digits.
 """
 
+POWER = 5
 
-def solution(power):
+
+def solution():
     # A number with at least n digits will be always greater than the sum of the powers
     n = 0
-    while sum(9 ** power for _ in range(n)) >= 10 ** n - 1:
+    while sum(9 ** POWER for _ in range(n)) >= 10 ** n - 1:
         n += 1
     n += 1
 
     return sum(
         number
         for number in range(3, 10 ** n)
-        if number == sum(int(digit) ** power for digit in str(number))
+        if number == sum(int(digit) ** POWER for digit in str(number))
     )
 
 
 if __name__ == "__main__":
-    power = 5
-
-    print(solution(power))
+    print(solution())

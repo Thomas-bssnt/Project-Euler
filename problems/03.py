@@ -8,12 +8,12 @@ What is the largest prime factor of the number 600851475143 ?
 
 from helpers import prime_factorization
 
+NUMBER_TO_FACTORIZE = 600851475143
 
-def solution(number_to_factorize):
-    return max(prime_factorization(number_to_factorize))
+
+def solution():
+    return max(prime_factorization(NUMBER_TO_FACTORIZE))
 
 
 if __name__ == "__main__":
-    number_to_factorize = 600851475143
-
-    print(solution(number_to_factorize))
+    print(solution())

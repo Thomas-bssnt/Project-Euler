@@ -6,12 +6,12 @@ Problem 16: Power digit sum
 What is the sum of the digits of the number 2^1000?
 """
 
+POWER = 1000
 
-def solution(power):
-    return sum(int(digit) for digit in str(2 ** power))
+
+def solution():
+    return sum(int(digit) for digit in str(2 ** POWER))
 
 
 if __name__ == "__main__":
-    power = 1000
-
-    print(solution(power))
+    print(solution())

@@ -13,17 +13,17 @@ It is possible to make £2 in the following way:
 How many different ways can £2 be made using any number of coins?
 """
 
+PRICE = 200
+COINS = {1, 2, 5, 10, 20, 50, 100, 200}
 
-def solution(price, coins):
-    combinations = [1] + [0] * price
-    for coin in coins:
-        for i in range(coin, price + 1):
+
+def solution():
+    combinations = [1] + [0] * PRICE
+    for coin in COINS:
+        for i in range(coin, PRICE + 1):
             combinations[i] += combinations[i - coin]
     return combinations[-1]
 
 
 if __name__ == "__main__":
-    price = 200
-    coins = {1, 2, 5, 10, 20, 50, 100, 200}
-
-    print(solution(price, coins))
+    print(solution())

@@ -2,22 +2,25 @@
 Problem 49: Prime permutations
 
 The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases
-by 3330, is unusual in two ways: (i) each of the three terms are prime, and, (ii)
-each of the 4-digit numbers are permutations of one another.
+by 3330, is unusual in two ways: (i) each of the three terms are prime, and,
+(ii) each of the 4-digit numbers are permutations of one another.
 
-There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, exhibiting
-this property, but there is one other 4-digit increasing sequence.
+There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes,
+exhibiting this property, but there is one other 4-digit increasing sequence.
 
-What 12-digit number do you form by concatenating the three terms in this sequence?
+What 12-digit number do you form by concatenating the three terms in this
+sequence?
 """
 
 from helpers import prime_numbers
 
+NUMBER_OF_DIGITS = 4
 
-def solution(number_of_digits):
+
+def solution():
     primes_with_4_digits = [
         prime
-        for prime in prime_numbers(10 ** number_of_digits)
+        for prime in prime_numbers(10 ** NUMBER_OF_DIGITS)
         if len(str(prime)) == 4
     ]
 
@@ -46,6 +49,4 @@ def solution(number_of_digits):
 
 
 if __name__ == "__main__":
-    number_of_digits = 4
-
-    print(solution(number_of_digits))
+    print(solution())
