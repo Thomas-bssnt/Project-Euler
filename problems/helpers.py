@@ -1,5 +1,5 @@
 from typing import Generator
-from math import isqrt
+from math import isqrt, sqrt
 
 
 def fibonacci(f1: int, f2: int) -> Generator[int, None, None]:
@@ -43,7 +43,7 @@ def prime_factorization(number: int) -> list[int]:
     prime_factors = []
 
     factor = 2
-    while factor <= isqrt(number):
+    while factor <= int(sqrt(number)):
         while number % factor == 0:
             number /= factor
             prime_factors.append(factor)

@@ -82,7 +82,6 @@ def solution():
             # Diagonal 2
             if i - PRODUCT_LENGTH + 1 >= 0 and j + PRODUCT_LENGTH <= length_cols:
                 products.append(prod(GRID[i - p][j + p] for p in range(PRODUCT_LENGTH)))
-                print(i, j)
 
     return max(products)
 
