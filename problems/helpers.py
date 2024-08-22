@@ -17,12 +17,20 @@ def fibonacci(f1: int, f2: int) -> Generator[int, None, None]:
         yield b
 
 
-def triangular_number():
+def triangular_number(start: int = 0) -> Generator[int, None, None]:
     """
     Generates the triangular numbers
     """
-    for i in count():
+    for i in count(start):
         yield i * (i + 1) // 2
+
+
+def pentagonal_number(start: int = 0) -> Generator[int, None, None]:
+    """
+    Generates the pentagonal numbers
+    """
+    for i in count(start):
+        yield i * (3 * i - 1) // 2
 
 
 def prime_numbers(limit: int) -> Generator[int, None, None]:
