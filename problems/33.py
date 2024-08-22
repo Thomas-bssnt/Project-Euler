@@ -25,8 +25,8 @@ def get_non_trivial_fractions():
     for numerator, denominator in combinations(numbers, 2):
         for i in str(numerator):
             if i in str(denominator):
-                reduced_numerator = int(str(numerator).replace(i, '', 1))
-                reduced_denominator = int(str(denominator).replace(i, '', 1))
+                reduced_numerator = int(str(numerator).replace(i, "", 1))
+                reduced_denominator = int(str(denominator).replace(i, "", 1))
                 if numerator / denominator == reduced_numerator / reduced_denominator:
                     fractions.append((numerator, denominator))
     return fractions
@@ -34,8 +34,7 @@ def get_non_trivial_fractions():
 
 def solution():
     return prod(
-        Fraction(*fraction)
-        for fraction in get_non_trivial_fractions()
+        Fraction(*fraction) for fraction in get_non_trivial_fractions()
     ).denominator
 
 

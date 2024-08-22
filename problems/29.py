@@ -22,11 +22,13 @@ B_LIMITS = (2, 100)
 
 
 def solution():
-    return len({
-        a ** b
-        for a in range(A_LIMITS[0], A_LIMITS[1] + 1)
-        for b in range(B_LIMITS[0], B_LIMITS[1] + 1)
-    })
+    return len(
+        {
+            a**b
+            for a in range(A_LIMITS[0], A_LIMITS[1] + 1)
+            for b in range(B_LIMITS[0], B_LIMITS[1] + 1)
+        }
+    )
 
 
 if __name__ == "__main__":

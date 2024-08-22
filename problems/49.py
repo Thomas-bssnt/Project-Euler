@@ -23,9 +23,7 @@ KNOWN_SEQUENCE = (1487, 4817, 8147)
 
 def solution():
     primes_with_4_digits = [
-        prime
-        for prime in prime_numbers(10 ** NUMBER_OF_DIGITS)
-        if len(str(prime)) == 4
+        prime for prime in prime_numbers(10**NUMBER_OF_DIGITS) if len(str(prime)) == 4
     ]
 
     prime_groups = defaultdict(list)
@@ -36,10 +34,7 @@ def solution():
         if len(prime_group) >= 3:
             for prime1, prime2, prime3 in combinations(prime_group, 3):
                 # itertools.combinations preserves the order
-                if (
-                        prime2 - prime1 == prime3 - prime2 and
-                        prime1 not in KNOWN_SEQUENCE
-                ):
+                if prime2 - prime1 == prime3 - prime2 and prime1 not in KNOWN_SEQUENCE:
                     return str(prime1) + str(prime2) + str(prime3)
 
 

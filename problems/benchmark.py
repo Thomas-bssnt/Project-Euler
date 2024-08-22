@@ -16,6 +16,8 @@ if __name__ == "__main__":
         result = module.solution()
         end_time = default_timer()
 
-        print(f"Problem {file_path.stem}: "
-              f"result = {result} "
-              f"({(end_time - start_time) * 1000:.3f}ms)")
+        print(
+            f"Problem {file_path.stem}: "
+            f"result = {result} "
+            f"({(end_time - start_time) * 1000:.3f}ms)"
+        )

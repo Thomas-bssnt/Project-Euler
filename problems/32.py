@@ -33,7 +33,7 @@ def solution():
     for p in permutations(digits):
         p = "".join(p)
         for i, j in [(1, 4), (2, 3)]:
-            if int(p[:i]) * int(p[i:i + j]) == (product := int(p[i + j:])):
+            if int(p[:i]) * int(p[i : i + j]) == (product := int(p[i + j :])):
                 pandigital_products.add(product)
 
     return sum(pandigital_products)

@@ -19,7 +19,7 @@ def solution():
     for a in range(1, TRIPLET_SUM):
         for b in range(a + 1, TRIPLET_SUM):
             c = TRIPLET_SUM - a - b
-            if a ** 2 + b ** 2 == c ** 2:
+            if a**2 + b**2 == c**2:
                 return a * b * c
     return None
 

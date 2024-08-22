@@ -34,8 +34,8 @@ def solution():
             if chain_sum > LIMIT:
                 break
             if (
-                    chain_sum in prime_lookup
-                    and (chain_length := end - start + 1) > max_chain_length
+                chain_sum in prime_lookup
+                and (chain_length := end - start + 1) > max_chain_length
             ):
                 max_chain_length = chain_length
                 max_chain_sum = chain_sum

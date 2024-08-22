@@ -20,12 +20,13 @@ SQUARE_SIZE = 1001
 
 
 def solution():
-    return 1 + sum(4 * n ** 2 - 6 * (n - 1) for n in range(3, SQUARE_SIZE + 1, 2))
+    """
+    The sum of the four corner of a square of size n is:
+    n^2 + (n^2 - (n-1)) + (n^2 - 2(n-1)) + (n^2 - 3(n-1))
+    = 4n^2 - 6(n-1)
+    """
+    return 1 + sum(4 * n**2 - 6 * (n - 1) for n in range(3, SQUARE_SIZE + 1, 2))
 
-
-# The sum of the four corner of a square of size n is:
-# n^2 + (n^2 - (n-1)) + (n^2 - 2(n-1)) + (n^2 - 3(n-1))
-# = 4n^2 - 6(n-1)
 
 if __name__ == "__main__":
     print(solution())

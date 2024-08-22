@@ -11,7 +11,7 @@ LIMIT = 1000
 
 
 def solution():
-    sum_ = sum(i ** i for i in range(1, LIMIT + 1))
+    sum_ = sum(i**i for i in range(1, LIMIT + 1))
     return str(sum_)[-NUMBER_OF_DIGITS:]
 
 

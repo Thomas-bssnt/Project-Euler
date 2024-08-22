@@ -19,10 +19,11 @@ INDEX = 1000000
 
 
 def solution():
+    """
+    No need to sort as permutations return in the right order already
+    """
     return int("".join(list(permutations(NUMBERS))[INDEX - 1]))
 
 
 if __name__ == "__main__":
     print(solution())
-
-    # No need to sort as permutations return in the right order already

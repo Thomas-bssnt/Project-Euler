@@ -18,7 +18,7 @@ def solution():
     for number in NUMBERS:
         if is_prime(number):
             power = 1
-            while number ** power <= max(NUMBERS):
+            while number**power <= max(NUMBERS):
                 result *= number
                 power += 1
     return result

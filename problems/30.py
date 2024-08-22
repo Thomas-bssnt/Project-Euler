@@ -20,14 +20,17 @@ POWER = 5
 
 
 def solution():
-    # A number with at least n digits will be always greater than the sum of the powers
+    """
+    A number with at least n digits will be always greater than the sum of the
+    powers
+    """
     n = 1
-    while 9 ** POWER * n >= 10 ** n - 1:
+    while 9**POWER * n >= 10**n - 1:
         n += 1
 
     return sum(
         number
-        for number in range(3, 10 ** n)
+        for number in range(3, 10**n)
         if number == sum(int(digit) ** POWER for digit in str(number))
     )
 

@@ -30,9 +30,9 @@ def solution():
     for number in range(LIMIT):
         d_number = proper_divisors_sum[number]
         if (
-                d_number < LIMIT and
-                d_number != number and
-                number == proper_divisors_sum[d_number]
+            d_number < LIMIT
+            and d_number != number
+            and number == proper_divisors_sum[d_number]
         ):
             result += number
     return result

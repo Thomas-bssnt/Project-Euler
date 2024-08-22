@@ -13,6 +13,7 @@ Find the pair of pentagonal numbers, Pj and Pk, for which their sum and
 difference are pentagonal and D = |Pk − Pj| is minimised; what is the value of
 D?
 """
+
 from math import inf
 
 from helpers import pentagonal_number
@@ -35,10 +36,7 @@ def solution():
 
     for new_pentagonal in pentagonal_number():
 
-        if (
-                new_pentagonal in sum_to_diff and
-                sum_to_diff[new_pentagonal] < min_diff
-        ):
+        if new_pentagonal in sum_to_diff and sum_to_diff[new_pentagonal] < min_diff:
             min_diff = sum_to_diff[new_pentagonal]
 
         if pentagonals and new_pentagonal - pentagonals[-1] > min_diff:

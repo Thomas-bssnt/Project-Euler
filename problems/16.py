@@ -10,7 +10,7 @@ POWER = 1000
 
 
 def solution():
-    return sum(int(digit) for digit in str(2 ** POWER))
+    return sum(int(digit) for digit in str(2**POWER))
 
 
 if __name__ == "__main__":

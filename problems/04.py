@@ -15,8 +15,8 @@ NUMBER_OF_DIGITS = 3
 def solution():
     return max(
         i * j
-        for i in range(10 ** NUMBER_OF_DIGITS)
-        for j in range(10 ** NUMBER_OF_DIGITS)
+        for i in range(10**NUMBER_OF_DIGITS)
+        for j in range(10**NUMBER_OF_DIGITS)
         if is_palindrome(i * j)
     )
 

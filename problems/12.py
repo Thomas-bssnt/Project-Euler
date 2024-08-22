@@ -31,7 +31,7 @@ from helpers import triangular_number
 def number_divisors(number):
     end = isqrt(number)
     result = sum(2 for i in range(1, end + 1) if number % i == 0)
-    if end ** 2 == number:
+    if end**2 == number:
         result -= 1
     return result
 
