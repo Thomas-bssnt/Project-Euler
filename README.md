@@ -10,7 +10,8 @@ Project Euler is a website dedicated to a series of computational problems inten
 
 In this repository, I follow a set of personal rules for solving the problems:
 
-1. **Python Only**: All solutions are written in Python.
-2. **Standard Library Only**: I use only Python's standard library to solve the problems.
-3. **Pythonic Solutions**: I aim to write the most Pythonic code possible, adhering to the language's idiomatic practices.
-4. **Concise and Efficient**: I strive to make the solutions as short and efficient as possible. If feasible, I try to implement the solution as a one-liner.
+1. **Python Only**: All solutions are written in Python, specifically Python 3.12+.
+2. **Standard Library Only**: I exclusively use Python's standard library to solve the problems, maximizing the use of built-in functions and modules.
+3. **Pythonic Solutions**: I prioritize writing Pythonic code, embracing idiomatic practices and clear, readable syntax.
+4. **Concise and Efficient**: My goal is to craft solutions that are both concise and optimized for performance, minimizing unnecessary complexity.
+5. **Algorithm Generalization** Whenever possible, I generalize the algorithms to make them applicable to a broader range of inputs, such as different numbers or limits, ensuring flexibility and reusability. 
