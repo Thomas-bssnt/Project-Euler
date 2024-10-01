@@ -12,8 +12,6 @@ forty-two) contains  letters and  (one hundred and fifteen) contains  letters.
 The use of "and" when writing out numbers is in compliance with British usage.
 """
 
-from multiprocessing.managers import rebuild_as_list
-
 
 def get_written(number):
     number_dict = {
