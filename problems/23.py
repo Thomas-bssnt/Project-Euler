@@ -20,33 +20,11 @@ Find the sum of all the positive integers which cannot be written as the sum of
 two abundant numbers.
 """
 
-from math import isqrt
-
-
-def get_proper_divisors(number: int) -> list[int]:
-    """
-    Returns the proper divisors of the given number.
-    """
-
-    divisors = [1]
-    for i in range(2, isqrt(number) + 1):
-        if number % i == 0:
-            divisors.append(i)
-            if i != number // i:
-                divisors.append(number // i)
-    return divisors
-
-
-def get_proper_divisors_sum(bound):
-    proper_divisors_sum = [0] * bound
-    for number in range(1, bound):
-        for multiple in range(2 * number, bound, number):
-            proper_divisors_sum[multiple] += number
-    return proper_divisors_sum
+from helpers import sum_proper_divisors
 
 
 def is_abundant(number):
-    return sum(get_proper_divisors(number)) > number
+    return sum_proper_divisors(number) > number
 
 
 def solution():

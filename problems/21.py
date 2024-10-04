@@ -12,30 +12,18 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
+from helpers import sum_proper_divisors
+
 LIMIT = 10000
 
 
-def get_proper_divisors_sum(bound):
-    proper_divisors_sum = [0] * bound
-    for number in range(1, bound):
-        for multiple in range(2 * number, bound, number):
-            proper_divisors_sum[multiple] += number
-    return proper_divisors_sum
+def is_amicable(number):
+    d_number = sum_proper_divisors(number)
+    return d_number != number and number == sum_proper_divisors(d_number)
 
 
 def solution():
-    proper_divisors_sum = get_proper_divisors_sum(LIMIT)
-
-    result = 0
-    for number in range(LIMIT):
-        d_number = proper_divisors_sum[number]
-        if (
-            d_number < LIMIT
-            and d_number != number
-            and number == proper_divisors_sum[d_number]
-        ):
-            result += number
-    return result
+    return sum(number for number in range(LIMIT) if is_amicable(number))
 
 
 if __name__ == "__main__":

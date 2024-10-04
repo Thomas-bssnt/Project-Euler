@@ -55,8 +55,7 @@ def prime_numbers(limit: int) -> Generator[int, None, None]:
 
 def prime_factorization(number: int) -> list[int]:
     """
-    Returns a list of prime factors of the given number.
-    The factors are sorted in ascending order.
+    Returns a sorted list of the prime factors of the given number.
     """
     prime_factors = []
 
@@ -72,6 +71,32 @@ def prime_factorization(number: int) -> list[int]:
         prime_factors.append(int(number))
 
     return prime_factors
+
+
+def proper_divisors(number: int) -> list[int]:
+    """
+    Returns a sorted list of the proper divisors of the given number.
+    """
+
+    if number == 1:
+        return []
+
+    divisors = [1]
+
+    for i in range(2, isqrt(number) + 1):
+        if number % i == 0:
+            divisors.append(i)
+            if i != number // i:
+                divisors.append(number // i)
+
+    return sorted(divisors)
+
+
+def sum_proper_divisors(number: int) -> int:
+    """
+    Returns the sum of the proper divisors of the given number.
+    """
+    return sum(proper_divisors(number))
 
 
 def maximum_path_sum(triangle: list[list[int]]) -> int:
