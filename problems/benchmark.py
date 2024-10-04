@@ -16,9 +16,8 @@ if __name__ == "__main__":
 
         start_time = default_timer()
         result = module.solution()
-        end_time = default_timer()
+        time = default_timer() - start_time
 
-        time = end_time - start_time
         total_time += time
 
         print(f"Problem {file_path.stem}: result = {result} ({time * 1000:.3f}ms)")
